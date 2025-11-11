@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O Fim da Descoordenação - Ebook Gratuito</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #E63946 0%, #F77F00 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            transition: opacity 0.3s;
+        }
+
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1D3557 0%, #2E5266 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero .subheadline {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #F77F00;
+            font-weight: 500;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 40px;
+            line-height: 1.8;
+            color: #e0e0e0;
+        }
+
+        /* Main Content */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .content-section {
+            padding: 60px 20px;
+            background: white;
+        }
+
+        .section-title {
+            font-size: 36px;
+            color: #E63946;
+            margin-bottom: 40px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Problem Section */
+        .problem-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .problem-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-left: 5px solid #E63946;
+            border-radius: 8px;
+        }
+
+        .problem-card h3 {
+            font-size: 20px;
+            color: #E63946;
+            margin-bottom: 15px;
+        }
+
+        .problem-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #E63946 0%, #F77F00 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin: 60px 0;
+        }
+
+        .cta-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .form-container {
+            max-width: 500px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: #333;
+            font-weight: 600;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus {
+            outline: none;
+            border-color: #E63946;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #E63946 0%, #F77F00 100%);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(230, 57, 70, 0.3);
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            background: #f8f9fa;
+            padding: 60px 20px;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .benefit-item {
+            text-align: center;
+        }
+
+        .benefit-icon {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .benefit-item h3 {
+            font-size: 20px;
+            color: #E63946;
+            margin-bottom: 10px;
+        }
+
+        .benefit-item p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            padding: 60px 20px;
+            background: white;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .testimonial {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            border-top: 5px solid #06A77D;
+        }
+
+        .testimonial-text {
+            color: #666;
+            margin-bottom: 15px;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #E63946;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 60px 20px;
+            background: #f8f9fa;
+        }
+
+        .faq-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: white;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .faq-question {
+            padding: 20px;
+            background: #f8f9fa;
+            cursor: pointer;
+            font-weight: bold;
+            color: #E63946;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: #e8e8e8;
+        }
+
+        .faq-answer {
+            padding: 20px;
+            color: #666;
+            display: none;
+            line-height: 1.8;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-toggle {
+            font-size: 20px;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        footer {
+            background: #1D3557;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: #F77F00;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero .subheadline {
+                font-size: 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .form-container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">Dupla Especialista</div>
+            <ul class="nav-links">
+                <li><a href="#problema">Problema</a></li>
+                <li><a href="#solucao">Solução</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1>O Fim da Descoordenação</h1>
+            <p class="subheadline">Como Sincronizar Nutrição e Treino para Resultados Extraordinários</p>
+            <p>Descubra o método simples que transforma confusão em clareza e resultados lentos em transformações rápidas</p>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <section class="content-section container" id="problema">
+        <h2 class="section-title">Você Tem Esses Sinais?</h2>
+        <div class="problem-grid">
+            <div class="problem-card">
+                <h3>Treina Intenso Mas Não Ganha Músculo</h3>
+                <p>Você vai à academia 4-5 vezes por semana, levanta pesos pesados, mas seu espelho não muda. Seu corpo não está respondendo porque você não está comendo o suficiente para suportar o treino.</p>
+            </div>
+            <div class="problem-card">
+                <h3>Come Bem Mas Não Perde Gordura</h3>
+                <p>Você segue uma dieta rigorosa, conta calorias, evita carboidratos, mas a gordura não sai. O problema é que sua nutrição não está alinhada com seu treino.</p>
+            </div>
+            <div class="problem-card">
+                <h3>Falta de Energia nos Treinos</h3>
+                <p>Você chega à academia cansado, sem energia, e seus treinos sofrem. Seu corpo precisa de combustível para treinar intensamente. Se você não fornece esse combustível, seu desempenho cai.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="solucao">
+        <div class="container">
+            <h2>Receba Seu Ebook Gratuito Agora</h2>
+            <p>Descubra os 3 pilares que faltam no seu plano atual e aprenda 3 ajustes imediatos que você pode fazer HOJE</p>
+            
+            <div class="form-container">
+                <form id="leadForm">
+                    <div class="form-group">
+                        <label for="name">Seu Nome</label>
+                        <input type="text" id="name" name="name" required placeholder="João Silva">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Seu Email</label>
+                        <input type="email" id="email" name="email" required placeholder="joao@email.com">
+                    </div>
+                    <button type="submit" class="submit-btn">Baixar Ebook Gratuito</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section container">
+        <h2 class="section-title">O Que Você Vai Aprender</h2>
+        <div class="benefits-grid">
+            <div class="benefit-item">
+                <div class="benefit-icon">📚</div>
+                <h3>A Ciência da Descoordenação</h3>
+                <p>Entenda por que seu treino e dieta estão brigando e como a fisiologia explica seus resultados lentos.</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">🏛️</div>
+                <h3>Os 3 Pilares da Sinergia</h3>
+                <p>Descubra os 3 pilares fundamentais que faltam no seu plano atual e como implementá-los.</p>
+            </div>
+            <div class="benefit-item">
+                <div class="benefit-icon">⚡</div>
+                <h3>3 Ajustes Imediatos</h3>
+                <p>Aprenda 3 ajustes práticos que você pode fazer HOJE para começar a sincronizar nutrição e treino.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section container">
+        <h2 class="section-title">O Que Clientes Dizem</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial">
+                <div class="testimonial-text">"Depois de ler o ebook, entendi finalmente por que meus resultados eram lentos. Os 3 ajustes imediatos foram game-changers para mim!"</div>
+                <div class="testimonial-author">- Maria, 32 anos</div>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-text">"Conteúdo científico, mas escrito de forma simples. Exatamente o que eu procurava. Recomendo para qualquer um que treina."</div>
+                <div class="testimonial-author">- Carlos, 28 anos</div>
+            </div>
+            <div class="testimonial">
+                <div class="testimonial-text">"Gratuito e de alta qualidade. Isso me motivou a contratar a consultoria completa. Melhor decisão que fiz!"</div>
+                <div class="testimonial-author">- Ana, 35 anos</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="container">
+            <h2 class="section-title">Perguntas Frequentes</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Quanto custa o ebook?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">É totalmente gratuito! Você apenas precisa fornecer seu nome e email para receber o ebook.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Preciso de experiência em nutrição ou treino?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">Não! O ebook foi escrito para iniciantes. Não há jargão técnico, tudo é explicado de forma simples e prática.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Quanto tempo leva para ler?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">Aproximadamente 20-30 minutos. Você pode ler no seu ritmo, quando quiser.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Vou receber spam?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">Não! Você receberá apenas conteúdo educativo e dicas práticas. Você pode cancelar a inscrição a qualquer momento com um clique.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Posso usar o ebook junto com meu nutricionista?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">Sim! O ebook é complementar. Você pode compartilhar com seu nutricionista ou personal trainer para melhorar a comunicação.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Dupla Especialista. Todos os direitos reservados.</p>
+        <p><a href="#">Política de Privacidade</a> | <a href="#">Termos de Serviço</a></p>
+    </footer>
+
+    <script>
+        // Form Submission
+        document.getElementById('leadForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            
+            // Aqui você integraria com seu serviço de email (Mailchimp, ConvertKit, etc)
+            console.log('Lead capturado:', { name, email });
+            
+            // Simular sucesso
+            alert(`Obrigado, ${name}! Verifique seu email para baixar o ebook.`);
+            this.reset();
+        });
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const item = this.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>

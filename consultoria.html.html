@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultoria Integrada - Nutrição + Treino</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #E63946 0%, #F77F00 100%);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #1D3557 0%, #2E5266 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .hero-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero .subheadline {
+            font-size: 24px;
+            margin-bottom: 30px;
+            color: #F77F00;
+            font-weight: 500;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: #e0e0e0;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Section */
+        .section {
+            padding: 60px 20px;
+            background: white;
+        }
+
+        .section-title {
+            font-size: 36px;
+            color: #E63946;
+            margin-bottom: 40px;
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Process Section */
+        .process-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .process-step {
+            text-align: center;
+            padding: 30px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-top: 5px solid #E63946;
+        }
+
+        .step-number {
+            font-size: 48px;
+            font-weight: bold;
+            color: #E63946;
+            margin-bottom: 15px;
+        }
+
+        .process-step h3 {
+            font-size: 20px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+
+        .process-step p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Packages Section */
+        .packages-section {
+            background: #f8f9fa;
+            padding: 60px 20px;
+        }
+
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .package-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .package-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+        }
+
+        .package-header {
+            background: linear-gradient(135deg, #E63946 0%, #F77F00 100%);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .package-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .package-description {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+
+        .package-content {
+            padding: 30px 20px;
+            flex-grow: 1;
+        }
+
+        .package-price {
+            font-size: 36px;
+            color: #E63946;
+            font-weight: bold;
+            margin-bottom: 5px;
+            text-align: center;
+        }
+
+        .package-billing {
+            font-size: 14px;
+            color: #999;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .package-features {
+            list-style: none;
+            margin-bottom: 30px;
+        }
+
+        .package-features li {
+            padding: 12px 0;
+            border-bottom: 1px solid #f0f0f0;
+            color: #666;
+        }
+
+        .package-features li:before {
+            content: "✓ ";
+            color: #06A77D;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .package-btn {
+            width: 100%;
+            padding: 15px;
+            background: linear-gradient(135deg, #E63946 0%, #F77F00 100%);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .package-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(230, 57, 70, 0.3);
+        }
+
+        /* Pillars Section */
+        .pillars-section {
+            padding: 60px 20px;
+            background: white;
+        }
+
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .pillar-card {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 5px solid #E63946;
+        }
+
+        .pillar-icon {
+            font-size: 36px;
+            margin-bottom: 15px;
+        }
+
+        .pillar-card h3 {
+            font-size: 20px;
+            color: #E63946;
+            margin-bottom: 15px;
+        }
+
+        .pillar-card p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            background: #f8f9fa;
+            padding: 60px 20px;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .testimonial {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            border-top: 5px solid #06A77D;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .testimonial-text {
+            color: #666;
+            margin-bottom: 15px;
+            font-style: italic;
+            line-height: 1.8;
+        }
+
+        .testimonial-author {
+            font-weight: bold;
+            color: #E63946;
+            margin-bottom: 5px;
+        }
+
+        .testimonial-result {
+            font-size: 14px;
+            color: #06A77D;
+            font-weight: bold;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            background: linear-gradient(135deg, #E63946 0%, #F77F00 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .cta-section p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-btn {
+            background: white;
+            color: #E63946;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 4px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            padding: 60px 20px;
+            background: white;
+        }
+
+        .faq-container {
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            background: #f8f9fa;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .faq-question {
+            padding: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            color: #E63946;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+
+        .faq-question:hover {
+            background: #e8e8e8;
+        }
+
+        .faq-answer {
+            padding: 20px;
+            color: #666;
+            display: none;
+            line-height: 1.8;
+            background: white;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        .faq-toggle {
+            font-size: 20px;
+            transition: transform 0.3s;
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        footer {
+            background: #1D3557;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        footer a {
+            color: #F77F00;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero .subheadline {
+                font-size: 20px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            .packages-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">Dupla Especialista</div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <h1>Consultoria Integrada</h1>
+            <p class="subheadline">Nutrição + Treino Sincronizados</p>
+            <p>Acompanhamento profissional contínuo que transforma seu corpo em 90 dias</p>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section container">
+        <h2 class="section-title">Como Funciona</h2>
+        <div class="process-grid">
+            <div class="process-step">
+                <div class="step-number">1</div>
+                <h3>Avaliação Inicial</h3>
+                <p>Avaliamos sua situação atual, objetivos, desafios, e histórico de saúde.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">2</div>
+                <h3>Criação de Plano</h3>
+                <p>Criamos um plano personalizado de nutrição e treino sincronizados para VOCÊ.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">3</div>
+                <h3>Implementação</h3>
+                <p>Você implementa o plano com nosso suporte contínuo e ajustes conforme necessário.</p>
+            </div>
+            <div class="process-step">
+                <div class="step-number">4</div>
+                <h3>Monitoramento</h3>
+                <p>Monitoramos seu progresso e fazemos ajustes para garantir resultados contínuos.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Packages Section -->
+    <section class="packages-section">
+        <div class="container">
+            <h2 class="section-title">Escolha Seu Pacote</h2>
+            <div class="packages-grid">
+                <!-- Package 1 -->
+                <div class="package-card">
+                    <div class="package-header">
+                        <div class="package-name">Sincronia Essencial</div>
+                        <div class="package-description">Para Quem Quer Começar</div>
+                    </div>
+                    <div class="package-content">
+                        <div class="package-price">$297</div>
+                        <div class="package-billing">/mês</div>
+                        <ul class="package-features">
+                            <li>1 reunião mensal com a dupla</li>
+                            <li>Plano nutricional personalizado</li>
+                            <li>Programa de treino personalizado</li>
+                            <li>Email de suporte</li>
+                            <li>Acesso a recursos educativos</li>
+                        </ul>
+                        <button class="package-btn">Escolher Este Plano</button>
+                    </div>
+                </div>
+
+                <!-- Package 2 -->
+                <div class="package-card">
+                    <div class="package-header">
+                        <div class="package-name">Evolução 360°</div>
+                        <div class="package-description">Para Resultados Rápidos</div>
+                    </div>
+                    <div class="package-content">
+                        <div class="package-price">$497</div>
+                        <div class="package-billing">/mês</div>
+                        <ul class="package-features">
+                            <li>Reuniões quinzenais com a dupla</li>
+                            <li>Suporte via app/WhatsApp</li>
+                            <li>Ajustes contínuos de planos</li>
+                            <li>Análise de progresso detalhada</li>
+                            <li>Acesso a recursos premium</li>
+                        </ul>
+                        <button class="package-btn">Escolher Este Plano</button>
+                    </div>
+                </div>
+
+                <!-- Package 3 -->
+                <div class="package-card">
+                    <div class="package-header">
+                        <div class="package-name">Performance Máxima</div>
+                        <div class="package-description">Para Máximos Resultados</div>
+                    </div>
+                    <div class="package-content">
+                        <div class="package-price">$797</div>
+                        <div class="package-billing">/mês</div>
+                        <ul class="package-features">
+                            <li>Ajustes semanais</li>
+                            <li>Suporte prioritário 24/7</li>
+                            <li>Análise detalhada de progresso</li>
+                            <li>Consultoria estratégica</li>
+                            <li>Acesso VIP a todos os recursos</li>
+                        </ul>
+                        <button class="package-btn">Escolher Este Plano</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pillars Section -->
+    <section class="pillars-section container">
+        <h2 class="section-title">Por Que Pagar Pela Dupla?</h2>
+        <div class="pillars-grid">
+            <div class="pillar-card">
+                <div class="pillar-icon">💬</div>
+                <h3>Comunicação Integrada</h3>
+                <p>Zero confusão. Nutricionista e personal se comunicam diretamente, garantindo que você receba orientações coerentes e complementares.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-icon">⚙️</div>
+                <h3>Ajustes Sincronizados</h3>
+                <p>Mudanças no plano alimentar e treino são automáticas e coordenadas. Se você muda um, o outro é otimizado.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-icon">👁️</div>
+                <h3>Visão 360°</h3>
+                <p>Análise completa (Nutrição + Performance) garantindo resultados seguros, duradouros e personalizados para você.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-icon">🎯</div>
+                <h3>Otimização</h3>
+                <p>Máximo retorno no seu investimento de tempo e dinheiro. Você não faz tentativa e erro, segue um plano testado.</p>
+            </div>
+            <div class="pillar-card">
+                <div class="pillar-icon">❤️</div>
+                <h3>Compromisso</h3>
+                <p>Suporte de uma dupla que vive e respira saúde. Nós nos comprometemos pessoalmente com seus resultados.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2 class="section-title">Histórias de Sucesso</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial">
+                    <div class="testimonial-text">"Sincronizei nutrição e treino com a Dupla Especialista e em 3 meses ganhei 5kg de músculo. Finalmente vi resultados reais!"</div>
+                    <div class="testimonial-author">João, 28 anos</div>
+                    <div class="testimonial-result">+5kg de músculo em 3 meses</div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-text">"Perdi 12kg de gordura preservando músculo. A comunicação integrada fez toda a diferença. Recomendo!"</div>
+                    <div class="testimonial-author">Maria, 32 anos</div>
+                    <div class="testimonial-result">-12kg de gordura em 3 meses</div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-text">"Estava em platô há 2 anos. A Dupla quebrou meu platô em 2 meses. Agora vejo progresso contínuo!"</div>
+                    <div class="testimonial-author">Carlos, 35 anos</div>
+                    <div class="testimonial-result">Platô quebrado em 2 meses</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Pronto Para Transformar Seu Corpo?</h2>
+            <p>Agende sua consulta gratuita agora e descubra exatamente como podemos ajudar você</p>
+            <button class="cta-btn">Agendar Consulta Gratuita</button>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section">
+        <div class="container">
+            <h2 class="section-title">Perguntas Frequentes</h2>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Quanto tempo leva para ver resultados?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">A maioria dos clientes vê resultados significativos em 4-8 semanas. Transformações completas levam 90 dias. Mas você começará a sentir mudanças (mais energia, melhor recuperação) em 2-3 semanas.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Preciso treinar em academia?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">Não, mas é recomendado. Você pode treinar em casa com halteres, mas academia oferece mais variedade de equipamentos. Nós adaptamos o programa para qualquer ambiente.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Posso cancelar a qualquer momento?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">Sim! Você pode cancelar sem penalidades. Mas recomendamos pelo menos 90 dias para ver resultados significativos. A maioria dos clientes continua porque vê resultados.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Como funciona o suporte?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">Depende do pacote. Sincronia Essencial: email. Evolução 360°: app/WhatsApp. Performance Máxima: suporte 24/7. Todos os pacotes incluem reuniões regulares com a dupla.</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">
+                        <span>Qual pacote devo escolher?</span>
+                        <span class="faq-toggle">▼</span>
+                    </div>
+                    <div class="faq-answer">Sincronia Essencial é ideal para iniciantes com orçamento limitado. Evolução 360° é melhor para quem quer resultados rápidos. Performance Máxima é para quem quer máximos resultados e está disposto a investir. Recomendamos começar com uma consulta gratuita.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Dupla Especialista. Todos os direitos reservados.</p>
+        <p><a href="#">Política de Privacidade</a> | <a href="#">Termos de Serviço</a></p>
+    </footer>
+
+    <script>
+        // Package Button Click
+        document.querySelectorAll('.package-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                alert('Redirecionando para agendamento de consulta...');
+                // Aqui você integraria com seu sistema de agendamento (Calendly, etc)
+            });
+        });
+
+        // CTA Button Click
+        document.querySelector('.cta-btn').addEventListener('click', function() {
+            alert('Redirecionando para agendamento de consulta...');
+            // Aqui você integraria com seu sistema de agendamento
+        });
+
+        // FAQ Toggle
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', function() {
+                const item = this.parentElement;
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
